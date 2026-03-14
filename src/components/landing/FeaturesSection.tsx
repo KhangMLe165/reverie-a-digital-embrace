@@ -142,10 +142,10 @@ const FeaturesSection = () => {
               Privacy & Trust
             </p>
             <h2 className="text-3xl md:text-5xl font-display italic text-foreground mb-4 max-w-2xl">
-              Built on the hardest promise we could make.
+              Your memories. Your words. Your rules.
             </h2>
             <p className="font-body text-muted-foreground text-lg max-w-2xl">
-              Your most intimate memories live here. We treat that with the gravity it deserves.
+              You decide what's included, how it's presented, and who receives it. We're just here to make sure it gets there.
             </p>
           </motion.div>
 
