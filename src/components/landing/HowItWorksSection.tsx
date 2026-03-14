@@ -39,7 +39,7 @@ const HowItWorksSection = () => {
                   <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">Connect Your World With Us</h3>
                   <p className="font-body text-muted-foreground leading-relaxed">
                     Link your photos, videos, voice recordings, and messages. That trip to Lisbon, that story you wish
-                    your grandkids knew — Memento holds it all, and you stay in full control.
+                    your grandkids knew. Memento holds it all, and you stay in full control.
                   </p>
                 </div>
               </div>
@@ -63,8 +63,8 @@ const HowItWorksSection = () => {
                   </p>
                   <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">Tell Us Who You Are</h3>
                   <p className="font-body text-muted-foreground leading-relaxed">
-                    Write a note, record your voice, say hello to your family, or connect your journal — entirely your
-                    choice. This is how we learn to represent you authentically, in your own words.
+                    Record your voice while seeing New York for the first time, say hello to your family, or connect
+                    your journal. This is how we learn to represent you authentically, in your own words.
                   </p>
                 </div>
               </div>
@@ -106,7 +106,7 @@ const HowItWorksSection = () => {
                   We Help You Build Your Legacy Story
                 </h3>
                 <p className="font-body text-muted-foreground leading-relaxed max-w-lg">
-                  Our AI Curator weaves your materials and words into a story of your life — iteratively, until it's
+                  Our AI Curator weaves your materials and words into a story of your life, iteratively, until it's
                   right. You choose who receives it when the time comes.
                 </p>
               </div>
