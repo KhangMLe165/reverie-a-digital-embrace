@@ -1,85 +1,179 @@
 import { motion } from "framer-motion";
-import { BookOpen, MapPin, Mic, Image, Users, Sparkles } from "lucide-react";
+import {
+  Camera,
+  BookText,
+  Instagram,
+  Mic,
+  Cloud,
+  Notebook,
+  ShieldCheck,
+  UserCheck,
+  Eye,
+  KeyRound,
+} from "lucide-react";
 
-const features = [
+const sources = [
   {
-    icon: BookOpen,
-    title: "AI Narrative Builder",
-    description: "Your life story, organized into chapters — from early memories to final messages.",
+    icon: Camera,
+    label: "Google Photos",
+    detail: "4,821 photos · 312 videos",
   },
   {
-    icon: Image,
-    title: "Smart Media Curation",
-    description: "AI selects your most meaningful photos and videos using face recognition and emotion detection.",
+    icon: Instagram,
+    label: "Instagram",
+    detail: "287 posts · 14 reels",
+  },
+  {
+    icon: Cloud,
+    label: "iCloud",
+    detail: "1,204 photos synced",
+  },
+  {
+    icon: BookText,
+    label: "Journals from London",
+    detail: "3 years of entries",
+  },
+  {
+    icon: Notebook,
+    label: "College Writings",
+    detail: "Essays, letters, reflections",
   },
   {
     icon: Mic,
-    title: "Voice Moments",
-    description: "Record messages, stories, and advice in your own voice for the people who matter most.",
+    label: "Voice Recordings",
+    detail: "Trip to Spain · Family stories",
+  },
+];
+
+const trustFeatures = [
+  {
+    icon: ShieldCheck,
+    title: "You own everything",
+    description:
+      "Your data is never used to train AI models. It is never sold. Never shared. You can delete everything permanently, at any time.",
   },
   {
-    icon: MapPin,
-    title: "Interactive Memory Map",
-    description: "A beautiful map of the places that shaped your life and the stories tied to them.",
+    icon: Eye,
+    title: "AI reads your content only to serve you",
+    description:
+      "Our AI curator accesses your materials solely to build your memento — nothing else. It doesn't store interpretations, doesn't learn from your data, and its access ends the moment your memento is complete.",
   },
   {
-    icon: Users,
-    title: "Family Contributions",
-    description: "After activation, loved ones can add their own memories to your shared space.",
+    icon: KeyRound,
+    title: "You control what gets included",
+    description:
+      "Nothing is added to your memento without your review. You see what the AI selected, and you have final say before anything is saved.",
   },
   {
-    icon: Sparkles,
-    title: "Personality Preservation",
-    description: "Your humor, warmth, and voice — captured authentically through your own words and recordings.",
+    icon: UserCheck,
+    title: "Human verification required",
+    description:
+      "Your memento is never released automatically. A verified next-of-kin and an independent third-party must both confirm before anything reaches your recipients.",
   },
 ];
 
 const FeaturesSection = () => {
   return (
-    <section id="features" className="py-32 px-6 md:px-16 bg-background">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            Features
-          </p>
-          <h2 className="text-4xl md:text-5xl font-display italic text-foreground mb-4">
-            More than memories
-          </h2>
-          <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto">
-            A thoughtful memorial narrative that reflects who you truly are.
-          </p>
-        </motion.div>
+    <>
+      {/* Connected Sources */}
+      <section className="py-28 px-6 md:px-16 bg-background">
+        <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <p className="font-body text-sm uppercase tracking-[0.3em] text-primary mb-4">
+              Your Connected Sources
+            </p>
+            <h2 className="text-3xl md:text-4xl font-display italic text-foreground mb-3 max-w-xl">
+              Everything that makes you, you.
+            </h2>
+            <p className="font-body text-muted-foreground text-lg max-w-2xl">
+              Connect the places where your life already lives. Memento brings it all together — gently, securely, and only with your permission.
+            </p>
+          </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, i) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="group p-8 rounded-2xl border border-border/50 bg-card hover:border-primary/20 hover:shadow-lg transition-all duration-500"
-            >
-              <div className="w-12 h-12 mb-5 rounded-xl bg-accent flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
-                <feature.icon className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-display mb-2 text-foreground">
-                {feature.title}
-              </h3>
-              <p className="font-body text-sm text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sources.map((source, i) => (
+              <motion.div
+                key={source.label}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="group flex items-center gap-4 rounded-xl border border-border bg-card p-5 hover:border-primary/30 hover:shadow-md transition-all duration-400"
+              >
+                <div className="w-11 h-11 shrink-0 rounded-lg bg-accent flex items-center justify-center group-hover:bg-primary/10 transition-colors duration-300">
+                  <source.icon className="w-5 h-5 text-primary" />
+                </div>
+                <div className="min-w-0">
+                  <p className="font-display text-sm font-medium text-foreground truncate">
+                    {source.label}
+                  </p>
+                  <p className="font-body text-xs text-muted-foreground">
+                    {source.detail}
+                  </p>
+                </div>
+                <div className="ml-auto shrink-0 w-6 h-6 rounded-full bg-foreground flex items-center justify-center">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M3 6.5L5 8.5L9 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-background" />
+                  </svg>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Privacy & Trust */}
+      <section className="py-28 px-6 md:px-16 bg-card">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+            className="mb-16"
+          >
+            <p className="font-body text-sm uppercase tracking-[0.3em] text-primary mb-4">
+              Privacy & Trust
+            </p>
+            <h2 className="text-3xl md:text-5xl font-display italic text-foreground mb-4 max-w-2xl">
+              Built on the hardest promise we could make.
+            </h2>
+            <p className="font-body text-muted-foreground text-lg max-w-2xl">
+              Your most intimate memories live here. We treat that with the gravity it deserves.
+            </p>
+          </motion.div>
+
+          <div className="flex flex-col gap-6">
+            {trustFeatures.map((feature, i) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="rounded-2xl border border-border bg-background p-8 md:p-10"
+              >
+                <div className="w-10 h-10 rounded-lg border border-border bg-card flex items-center justify-center mb-5">
+                  <feature.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-xl font-display font-semibold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="font-body text-muted-foreground leading-relaxed max-w-2xl">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
