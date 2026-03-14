@@ -18,7 +18,7 @@ const steps = [
     icon: Lock,
     title: "Deliver With Care",
     description:
-      "When the time comes, your loved ones receive a private, curated memorial — a space to remember, reflect, and heal.",
+      "When the time comes, your loved ones receive a private, curated Memento — a space to remember, reflect, and heal.",
   },
 ];
 

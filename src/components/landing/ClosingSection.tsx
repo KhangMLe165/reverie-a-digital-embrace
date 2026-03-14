@@ -18,10 +18,10 @@ const ClosingSection = () => {
           </h2>
           <p className="font-body text-lg text-muted-foreground mb-12 max-w-xl mx-auto leading-relaxed">
             When someone passes, families face grief and the burden of collecting scattered memories.
-            Reverie ensures your story is preserved and delivered with the care it deserves.
+            Memento ensures your story is preserved and delivered with the care it deserves.
           </p>
           <Button variant="hero" size="lg" className="text-base px-12 py-6">
-            Begin Your Reverie
+            Begin Your Memento
           </Button>
         </motion.div>
       </div>
