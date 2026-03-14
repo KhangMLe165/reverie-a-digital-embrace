@@ -4,21 +4,21 @@ import { CloudUpload, Heart, Lock } from "lucide-react";
 const steps = [
   {
     icon: CloudUpload,
-    title: "Gather Your Story",
+    title: "Connect Your World With Us",
     description:
-      "Connect your photos, videos, journals, and messages. Upload voice recordings and letters for the people you love.",
+      "Link access to your photos, videos, messages, voice recordings… that trip to Lisbon, that story you wish your grandkids would know about you. Memento indexes everything — you stay in full control of what gets included.",
   },
   {
     icon: Heart,
-    title: "Shape Your Legacy",
+    title: "Tell Us Who You Are",
     description:
-      "Tell us how you want to be remembered. AI weaves your memories into a beautiful, meaningful narrative.",
+      "Write notes in your own words, record short voice messages, connect to your digital journal — entirely and optionally up to you. This is how we learn who you are, by your own accord, or just authentically sharing your daily thoughts.",
   },
   {
     icon: Lock,
-    title: "Deliver With Care",
+    title: "We Help You Build Your Legacy Story",
     description:
-      "When the time comes, your loved ones receive a private, curated Memento — a space to remember, reflect, and heal.",
+      "Our AI Curator uses the context from your words and materials to build a story of your life. We work with you iteratively for the best version. You designate the trusted people you wish to leave it behind for — those who care about you.",
   },
 ];
 
