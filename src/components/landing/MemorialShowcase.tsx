@@ -5,6 +5,7 @@ import cookingImg from "@/assets/memorial-cooking.jpg";
 import workshopImg from "@/assets/memorial-workshop.jpg";
 import youngImg from "@/assets/memorial-young.jpg";
 import weddingImg from "@/assets/memorial-wedding.jpg";
+import videoImg from "@/assets/memorial-video.jpg";
 
 const memories = [
   {
