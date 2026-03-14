@@ -98,7 +98,7 @@ const MemorialShowcase = () => {
                 <img
                   src={memory.src}
                   alt={memory.alt}
-                  className="w-full h-56 md:h-72 object-cover object-top"
+                  className={`w-full h-56 md:h-72 object-cover ${memory.position}`}
                 />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-all duration-500 flex items-end">
                   <p className="font-body text-sm text-background/0 group-hover:text-background/90 transition-all duration-500 p-5">
