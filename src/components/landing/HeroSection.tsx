@@ -23,7 +23,7 @@ const HeroSection = () => {
           transition={{ duration: 1 }}
           className="font-display text-2xl italic tracking-wide text-foreground"
         >
-          Reverie
+          Memento
         </motion.span>
         <motion.div
           initial={{ opacity: 0 }}
@@ -45,7 +45,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-6"
         >
-          A Digital Legacy Platform
+          A Service For Your Legacy
         </motion.p>
 
         <motion.h1
@@ -65,8 +65,9 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
           className="font-body text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-12 leading-relaxed"
         >
-          Your memories, your voice, your story — curated and delivered
-          to the people you love, when they need it most.
+          Memento quietly gathers your photos, videos, messages, and memories —
+          and when the time comes, brings them together into a place where your
+          story lives on.
         </motion.p>
 
         <motion.div
@@ -76,7 +77,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <Button variant="hero" size="lg" className="text-base px-10 py-6">
-            Start Your Reverie
+            Start Your Memento
           </Button>
           <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
             Learn More
