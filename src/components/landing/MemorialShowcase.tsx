@@ -1,9 +1,7 @@
 import { motion } from "framer-motion";
+import { Play } from "lucide-react";
 import portraitImg from "@/assets/memorial-portrait.jpg";
 import cookingImg from "@/assets/memorial-cooking.jpg";
-import familyImg from "@/assets/memorial-family.jpg";
-import dinnerImg from "@/assets/memorial-dinner.jpg";
-import fishingImg from "@/assets/memorial-fishing.jpg";
 import workshopImg from "@/assets/memorial-workshop.jpg";
 import youngImg from "@/assets/memorial-young.jpg";
 import weddingImg from "@/assets/memorial-wedding.jpg";
@@ -13,43 +11,21 @@ const memories = [
     src: youngImg,
     alt: "Young Thomas by his first car, 1963",
     caption: "Graduation day, 1963 — his first car and his whole life ahead",
-    span: "",
   },
   {
     src: weddingImg,
     alt: "Thomas and Margaret on their wedding day",
     caption: "June 14, 1966 — 'the luckiest day of my life'",
-    span: "",
-  },
-  {
-    src: cookingImg,
-    alt: "Thomas cooking his famous stew",
-    caption: "Sunday stew — he never once used a recipe",
-    span: "",
-  },
-  {
-    src: fishingImg,
-    alt: "Thomas fishing at dawn on the lake",
-    caption: "Lake Champlain, 5:30 AM — 'the only hour worth waking for'",
-    span: "",
   },
   {
     src: workshopImg,
     alt: "Thomas in his workshop building furniture",
     caption: "The workshop — every grandchild has a bookshelf he built",
-    span: "",
   },
   {
-    src: familyImg,
-    alt: "Walking with granddaughter on the beach",
-    caption: "With Emma at Onset Beach, summer 2018",
-    span: "",
-  },
-  {
-    src: dinnerImg,
-    alt: "Christmas dinner with the whole family",
-    caption: "Christmas 2022 — the last one with everyone together",
-    span: "md:col-span-2",
+    src: cookingImg,
+    alt: "Thomas cooking his famous stew",
+    caption: "Sunday stew — he never once used a recipe",
   },
 ];
 
@@ -103,8 +79,8 @@ const MemorialShowcase = () => {
             </blockquote>
           </div>
 
-          {/* Photo grid */}
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-px bg-border/30">
+          {/* Photo grid — 4 photos */}
+          <div className="grid grid-cols-2 gap-px bg-border/30">
             {memories.map((memory, i) => (
               <motion.div
                 key={memory.alt}
@@ -112,7 +88,7 @@ const MemorialShowcase = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 + i * 0.08 }}
-                className={`relative group overflow-hidden ${memory.span}`}
+                className="relative group overflow-hidden"
               >
                 <img
                   src={memory.src}
@@ -128,87 +104,53 @@ const MemorialShowcase = () => {
             ))}
           </div>
 
-          {/* Memorial footer */}
-          <div className="px-8 py-10 md:px-16 md:py-14 space-y-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-2 h-2 rounded-full bg-primary/60" />
-              <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                Memory Timeline
-              </p>
-            </div>
-            <div className="space-y-4 border-l-2 border-border/40 pl-6">
-              <div>
-                <p className="font-body text-xs text-muted-foreground">1941</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Born in Brattleboro, Vermont — the youngest of four
-                </p>
+          {/* Video message section */}
+          <div className="border-t border-border/30">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="relative group cursor-pointer"
+            >
+              <div className="relative overflow-hidden bg-foreground/5">
+                <img
+                  src={portraitImg}
+                  alt="Thomas recording a video message"
+                  className="w-full h-64 md:h-80 object-cover object-top opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-foreground/10 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-background/20 backdrop-blur-sm border-2 border-background/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Play className="w-7 h-7 md:w-8 md:h-8 text-background ml-1" />
+                  </div>
+                  <p className="font-body text-xs uppercase tracking-[0.25em] text-background/80 mb-1">
+                    Video Message
+                  </p>
+                  <p className="font-display italic text-background text-lg md:text-xl">
+                    "A message for my family"
+                  </p>
+                  <p className="font-body text-xs text-background/60 mt-2">
+                    Recorded December 4, 2023 · 4:32
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">1959</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Captain of the high school baseball team — "the only trophy I ever cared about"
-                </p>
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">1963</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Graduated from UMass Amherst — bought his first car the same week
-                </p>
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">1966</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Married Margaret at St. Anne's — they danced to "Unforgettable"
-                </p>
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">1971</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Opened Peason Hardware on Main Street — ran it for 34 years
-                </p>
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">1989</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Built the lake house by hand — "a man needs a project and a porch"
-                </p>
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">2005</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Retired and took up woodworking — made a bookshelf for every grandchild
-                </p>
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">2014</p>
-                <p className="font-body text-sm text-foreground/80">
-                  First grandchild, Emma — "finally someone who laughs at my jokes"
-                </p>
-              </div>
-              <div>
-                <p className="font-body text-xs text-muted-foreground">2022</p>
-                <p className="font-body text-sm text-foreground/80">
-                  Last Christmas with the whole family — he made his famous beef stew
-                </p>
-              </div>
-            </div>
+            </motion.div>
+          </div>
 
-            {/* Voice message hint */}
-            <div className="mt-8 p-5 rounded-xl bg-card border border-border/30">
+          {/* His words */}
+          <div className="px-8 py-10 md:px-16 md:py-14">
+            <div className="p-5 rounded-xl bg-card border border-border/30">
               <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
-                A message he left
+                His words
               </p>
               <p className="font-display italic text-foreground/70 text-base leading-relaxed">
-                "I'm not great with words, but I want you all to know — the life I had was the life I wanted. 
+                "I'm not great with words, but I want you all to know — the life I had was the life I wanted.
                 Every Sunday dinner, every fishing trip, every time one of you walked through that front door. That was it. That was everything."
-              </p>
-              <p className="font-body text-xs text-muted-foreground mt-3">
-                Recorded December 4, 2023
               </p>
             </div>
 
-            <p className="font-body text-xs text-muted-foreground pt-4">
-              8 voice messages · 1,247 photos · 4 video letters · 1 life well lived
+            <p className="font-body text-xs text-muted-foreground pt-6">
+              4 photos · 1 video message · 1 life well lived
             </p>
           </div>
         </motion.div>
