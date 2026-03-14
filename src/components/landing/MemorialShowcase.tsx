@@ -12,21 +12,25 @@ const memories = [
     src: youngImg,
     alt: "Young Thomas by his first car, 1963",
     caption: "Graduation day, 1963 — his first car and his whole life ahead",
+    position: "object-top",
   },
   {
     src: weddingImg,
     alt: "Thomas and Margaret on their wedding day",
     caption: "June 14, 1966 — 'the luckiest day of my life'",
+    position: "object-top",
   },
   {
     src: workshopImg,
     alt: "Thomas in his workshop building furniture",
     caption: "The workshop — every grandchild has a bookshelf he built",
+    position: "object-[center_25%]",
   },
   {
     src: cookingImg,
     alt: "Thomas cooking his famous stew",
     caption: "Sunday stew — he never once used a recipe",
+    position: "object-[center_25%]",
   },
 ];
 
