@@ -12,21 +12,25 @@ const memories = [
     src: youngImg,
     alt: "Young Thomas by his first car, 1963",
     caption: "Graduation day, 1963 — his first car and his whole life ahead",
+    position: "object-top",
   },
   {
     src: weddingImg,
     alt: "Thomas and Margaret on their wedding day",
     caption: "June 14, 1966 — 'the luckiest day of my life'",
+    position: "object-top",
   },
   {
     src: workshopImg,
     alt: "Thomas in his workshop building furniture",
     caption: "The workshop — every grandchild has a bookshelf he built",
+    position: "object-[center_25%]",
   },
   {
     src: cookingImg,
     alt: "Thomas cooking his famous stew",
     caption: "Sunday stew — he never once used a recipe",
+    position: "object-[center_25%]",
   },
 ];
 
@@ -94,7 +98,7 @@ const MemorialShowcase = () => {
                 <img
                   src={memory.src}
                   alt={memory.alt}
-                  className="w-full h-56 md:h-72 object-cover object-top"
+                  className={`w-full h-56 md:h-72 object-cover ${memory.position}`}
                 />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-all duration-500 flex items-end">
                   <p className="font-body text-sm text-background/0 group-hover:text-background/90 transition-all duration-500 p-5">
