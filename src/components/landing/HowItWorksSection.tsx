@@ -12,12 +12,8 @@ const HowItWorksSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            How It Works
-          </p>
-          <h2 className="text-4xl md:text-5xl font-display italic text-foreground">
-            Three gentle steps
-          </h2>
+          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">How It Works</p>
+          <h2 className="text-4xl md:text-5xl font-display italic text-foreground">Three gentle steps</h2>
         </motion.div>
 
         {/* Flow: Two inputs converge into one output */}
@@ -40,13 +36,10 @@ const HowItWorksSection = () => {
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
                     Your Materials
                   </p>
-                  <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">
-                    Connect Your World With Us
-                  </h3>
+                  <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">Connect Your World With Us</h3>
                   <p className="font-body text-muted-foreground leading-relaxed">
-                    Link your photos, videos, voice recordings, and messages. That trip to Lisbon,
-                    that story you wish your grandkids knew — Memento holds it all, and you stay in
-                    full control.
+                    Link your photos, videos, voice recordings, and messages. That trip to Lisbon, that story you wish
+                    your grandkids knew — Memento holds it all, and you stay in full control.
                   </p>
                 </div>
               </div>
@@ -68,12 +61,10 @@ const HowItWorksSection = () => {
                   <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
                     Your Context
                   </p>
-                  <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">
-                    Tell Us Who You Are
-                  </h3>
+                  <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">Tell Us Who You Are</h3>
                   <p className="font-body text-muted-foreground leading-relaxed">
-                    Write a note, record your voice, or connect your journal — entirely your choice.
-                    This is how we learn to represent you authentically, in your own words.
+                    Write a note, record your voice, say hello to your family, or connect your journal — entirely your
+                    choice. This is how we learn to represent you authentically, in your own words.
                   </p>
                 </div>
               </div>
@@ -110,15 +101,13 @@ const HowItWorksSection = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
                   <Sparkles className="w-6 h-6 text-primary" />
                 </div>
-                <p className="font-body text-xs uppercase tracking-[0.2em] text-primary mb-2">
-                  AI Curation
-                </p>
+                <p className="font-body text-xs uppercase tracking-[0.2em] text-primary mb-2">AI Curation</p>
                 <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">
                   We Help You Build Your Legacy Story
                 </h3>
                 <p className="font-body text-muted-foreground leading-relaxed max-w-lg">
-                  Our AI Curator weaves your materials and words into a story of your life —
-                  iteratively, until it's right. You choose who receives it when the time comes.
+                  Our AI Curator weaves your materials and words into a story of your life — iteratively, until it's
+                  right. You choose who receives it when the time comes.
                 </p>
               </div>
             </div>
