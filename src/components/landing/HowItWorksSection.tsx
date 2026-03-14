@@ -1,26 +1,5 @@
 import { motion } from "framer-motion";
-import { CloudUpload, Heart, Lock } from "lucide-react";
-
-const steps = [
-  {
-    icon: CloudUpload,
-    title: "Connect Your World With Us",
-    description:
-      "Link access to your photos, videos, messages, voice recordings… that trip to Lisbon, that story you wish your grandkids would know about you. Memento indexes everything — you stay in full control of what gets included.",
-  },
-  {
-    icon: Heart,
-    title: "Tell Us Who You Are",
-    description:
-      "Write notes in your own words, record short voice messages, connect to your digital journal — entirely and optionally up to you. This is how we learn who you are, by your own accord, or just authentically sharing your daily thoughts.",
-  },
-  {
-    icon: Lock,
-    title: "We Help You Build Your Legacy Story",
-    description:
-      "Our AI Curator uses the context from your words and materials to build a story of your life. We work with you iteratively for the best version. You designate the trusted people you wish to leave it behind for — those who care about you.",
-  },
-];
+import { CloudUpload, Feather, Sparkles, ArrowDown } from "lucide-react";
 
 const HowItWorksSection = () => {
   return (
@@ -41,27 +20,109 @@ const HowItWorksSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-12 md:gap-16">
-          {steps.map((step, i) => (
+        {/* Flow: Two inputs converge into one output */}
+        <div className="flex flex-col items-center gap-0">
+          {/* Top row: Materials + Context */}
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 w-full mb-2">
+            {/* Step 1 — Materials */}
             <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.2 }}
-              className="text-center"
+              transition={{ duration: 0.7 }}
+              className="relative rounded-2xl border border-border bg-background p-8 md:p-10"
             >
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-accent flex items-center justify-center">
-                <step.icon className="w-7 h-7 text-primary" />
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 shrink-0 rounded-full bg-accent flex items-center justify-center">
+                  <CloudUpload className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                    Your Materials
+                  </p>
+                  <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">
+                    Connect Your World With Us
+                  </h3>
+                  <p className="font-body text-muted-foreground leading-relaxed">
+                    Link your photos, videos, voice recordings, and messages. That trip to Lisbon,
+                    that story you wish your grandkids knew — Memento holds it all, and you stay in
+                    full control.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-display mb-3 text-foreground">
-                {step.title}
-              </h3>
-              <p className="font-body text-muted-foreground leading-relaxed">
-                {step.description}
-              </p>
             </motion.div>
-          ))}
+
+            {/* Step 2 — Context */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.7, delay: 0.15 }}
+              className="relative rounded-2xl border border-border bg-background p-8 md:p-10"
+            >
+              <div className="flex items-start gap-5">
+                <div className="w-12 h-12 shrink-0 rounded-full bg-accent flex items-center justify-center">
+                  <Feather className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                    Your Context
+                  </p>
+                  <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">
+                    Tell Us Who You Are
+                  </h3>
+                  <p className="font-body text-muted-foreground leading-relaxed">
+                    Write a note, record your voice, or connect your journal — entirely your choice.
+                    This is how we learn to represent you authentically, in your own words.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Converging flow lines */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col items-center py-6"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-16 md:w-28 h-px bg-border" />
+              <div className="w-10 h-10 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center">
+                <ArrowDown className="w-4 h-4 text-primary" />
+              </div>
+              <div className="w-16 md:w-28 h-px bg-border" />
+            </div>
+          </motion.div>
+
+          {/* Step 3 — AI Curation (the convergence) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="w-full max-w-2xl mx-auto"
+          >
+            <div className="relative rounded-2xl border border-primary/20 bg-gradient-to-b from-background to-accent/30 p-8 md:p-10 shadow-sm">
+              <div className="flex flex-col items-center text-center">
+                <div className="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mb-5">
+                  <Sparkles className="w-6 h-6 text-primary" />
+                </div>
+                <p className="font-body text-xs uppercase tracking-[0.2em] text-primary mb-2">
+                  AI Curation
+                </p>
+                <h3 className="text-xl md:text-2xl font-display mb-3 text-foreground">
+                  We Help You Build Your Legacy Story
+                </h3>
+                <p className="font-body text-muted-foreground leading-relaxed max-w-lg">
+                  Our AI Curator weaves your materials and words into a story of your life —
+                  iteratively, until it's right. You choose who receives it when the time comes.
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
