@@ -116,9 +116,9 @@ const MemorialShowcase = () => {
             >
               <div className="relative overflow-hidden bg-foreground/5">
                 <img
-                  src={portraitImg}
-                  alt="Thomas recording a video message"
-                  className="w-full h-64 md:h-80 object-cover object-top opacity-80"
+                  src={videoImg}
+                  alt="Thomas recording a video message for his family"
+                  className="w-full h-80 md:h-[28rem] object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/30 to-foreground/10 flex flex-col items-center justify-center">
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-background/20 backdrop-blur-sm border-2 border-background/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
