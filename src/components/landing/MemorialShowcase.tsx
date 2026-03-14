@@ -45,10 +45,14 @@ const MemorialShowcase = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-6"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">A Real Memento</p>
-          <h2 className="text-4xl md:text-5xl font-display italic text-foreground mb-2">This is what it looks like</h2>
+          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
+            YOUR STORY, PRESERVED
+          </p>
+          <h2 className="text-4xl md:text-5xl font-display italic text-foreground mb-2">
+            This is what you leave behind
+          </h2>
           <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto">
-            When someone you love leaves behind a Memento, this is what their family receives.
+            Every photo, every voice, every word you chose to share, gathered into one place, just as you intended
           </p>
         </motion.div>
 
