@@ -79,9 +79,11 @@ const HeroSection = () => {
           <Button variant="hero" size="lg" className="text-base px-10 py-6">
             Start Your Memento
           </Button>
-          <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
-            Learn More
-          </Button>
+          <a href="#how-it-works">
+            <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
+              How It Works
+            </Button>
+          </a>
         </motion.div>
       </div>
 

@@ -12,13 +12,12 @@ const ClosingSection = () => {
           transition={{ duration: 1 }}
         >
           <h2 className="text-4xl md:text-6xl font-display italic text-foreground mb-8 leading-tight">
-            Because the people we love
+            Because your story deserves
             <br />
-            deserve more than silence
+            to be told the way you'd tell it.
           </h2>
           <p className="font-body text-lg text-muted-foreground mb-12 max-w-xl mx-auto leading-relaxed">
-            When someone passes, families face grief and the burden of collecting scattered memories.
-            Memento ensures your story is preserved and delivered with the care it deserves.
+            You've spent a lifetime collecting moments. Memento makes sure none of them get lost — and that the people you love receive them exactly as you intended.
           </p>
           <Button variant="hero" size="lg" className="text-base px-12 py-6">
             Begin Your Memento
