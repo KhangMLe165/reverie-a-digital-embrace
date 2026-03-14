@@ -18,7 +18,7 @@ const memories = [
     src: weddingImg,
     alt: "Thomas and Margaret on their wedding day",
     caption: "June 14, 1966 — 'the luckiest day of my life'",
-    position: "object-top",
+    position: "object-[center_25%]",
   },
   {
     src: workshopImg,
