@@ -5,19 +5,26 @@ import familyImg from "@/assets/memorial-family.jpg";
 import dinnerImg from "@/assets/memorial-dinner.jpg";
 import fishingImg from "@/assets/memorial-fishing.jpg";
 import workshopImg from "@/assets/memorial-workshop.jpg";
-import danceImg from "@/assets/memorial-dance.jpg";
+import youngImg from "@/assets/memorial-young.jpg";
+import weddingImg from "@/assets/memorial-wedding.jpg";
 
 const memories = [
+  {
+    src: youngImg,
+    alt: "Young Thomas by his first car, 1963",
+    caption: "Graduation day, 1963 — his first car and his whole life ahead",
+    span: "",
+  },
+  {
+    src: weddingImg,
+    alt: "Thomas and Margaret on their wedding day",
+    caption: "June 14, 1966 — 'the luckiest day of my life'",
+    span: "",
+  },
   {
     src: cookingImg,
     alt: "Thomas cooking his famous stew",
     caption: "Sunday stew — he never once used a recipe",
-    span: "md:col-span-2",
-  },
-  {
-    src: danceImg,
-    alt: "Thomas and Margaret dancing at their anniversary",
-    caption: "50th anniversary — still his favorite dance partner",
     span: "",
   },
   {
@@ -42,7 +49,7 @@ const memories = [
     src: dinnerImg,
     alt: "Christmas dinner with the whole family",
     caption: "Christmas 2022 — the last one with everyone together",
-    span: "md:col-span-3",
+    span: "md:col-span-2",
   },
 ];
 
@@ -97,20 +104,20 @@ const MemorialShowcase = () => {
           </div>
 
           {/* Photo grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border/30">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-px bg-border/30">
             {memories.map((memory, i) => (
               <motion.div
                 key={memory.alt}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 + i * 0.1 }}
+                transition={{ duration: 0.6, delay: 0.3 + i * 0.08 }}
                 className={`relative group overflow-hidden ${memory.span}`}
               >
                 <img
                   src={memory.src}
                   alt={memory.alt}
-                  className="w-full h-64 md:h-72 object-cover"
+                  className="w-full h-56 md:h-72 object-cover"
                 />
                 <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-all duration-500 flex items-end">
                   <p className="font-body text-sm text-background/0 group-hover:text-background/90 transition-all duration-500 p-5">
@@ -137,9 +144,15 @@ const MemorialShowcase = () => {
                 </p>
               </div>
               <div>
+                <p className="font-body text-xs text-muted-foreground">1959</p>
+                <p className="font-body text-sm text-foreground/80">
+                  Captain of the high school baseball team — "the only trophy I ever cared about"
+                </p>
+              </div>
+              <div>
                 <p className="font-body text-xs text-muted-foreground">1963</p>
                 <p className="font-body text-sm text-foreground/80">
-                  Graduated from UMass Amherst — "best years of my life, until I met your mother"
+                  Graduated from UMass Amherst — bought his first car the same week
                 </p>
               </div>
               <div>
@@ -158,6 +171,12 @@ const MemorialShowcase = () => {
                 <p className="font-body text-xs text-muted-foreground">1989</p>
                 <p className="font-body text-sm text-foreground/80">
                   Built the lake house by hand — "a man needs a project and a porch"
+                </p>
+              </div>
+              <div>
+                <p className="font-body text-xs text-muted-foreground">2005</p>
+                <p className="font-body text-sm text-foreground/80">
+                  Retired and took up woodworking — made a bookshelf for every grandchild
                 </p>
               </div>
               <div>
