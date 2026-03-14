@@ -18,7 +18,7 @@ const memories = [
     src: weddingImg,
     alt: "Thomas and Margaret on their wedding day",
     caption: "June 14, 1966 — 'the luckiest day of my life'",
-    position: "object-[center_25%]",
+    position: "object-[center_20%]",
   },
   {
     src: workshopImg,
@@ -45,12 +45,8 @@ const MemorialShowcase = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-6"
         >
-          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">
-            A Real Memento
-          </p>
-          <h2 className="text-4xl md:text-5xl font-display italic text-foreground mb-2">
-            This is what it looks like
-          </h2>
+          <p className="font-body text-sm uppercase tracking-[0.3em] text-muted-foreground mb-4">A Real Memento</p>
+          <h2 className="text-4xl md:text-5xl font-display italic text-foreground mb-2">This is what it looks like</h2>
           <p className="font-body text-muted-foreground text-lg max-w-2xl mx-auto">
             When someone you love leaves behind a Memento, this is what their family receives.
           </p>
@@ -67,15 +63,9 @@ const MemorialShowcase = () => {
           {/* Portrait header */}
           <div className="flex flex-col items-center pt-16 pb-10 px-6 border-b border-border/30">
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-border/20 shadow-lg mb-8">
-              <img
-                src={portraitImg}
-                alt="Thomas H. Peason"
-                className="w-full h-full object-cover"
-              />
+              <img src={portraitImg} alt="Thomas H. Peason" className="w-full h-full object-cover" />
             </div>
-            <h3 className="text-3xl md:text-4xl font-display italic text-foreground mb-3">
-              Thomas H. Peason
-            </h3>
+            <h3 className="text-3xl md:text-4xl font-display italic text-foreground mb-3">Thomas H. Peason</h3>
             <p className="font-body text-sm text-muted-foreground tracking-wide mb-6">
               April 3, 1941 — February 12, 2024
             </p>
@@ -128,15 +118,9 @@ const MemorialShowcase = () => {
                   <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-background/20 backdrop-blur-sm border-2 border-background/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <Play className="w-7 h-7 md:w-8 md:h-8 text-background ml-1" />
                   </div>
-                  <p className="font-body text-xs uppercase tracking-[0.25em] text-background/80 mb-1">
-                    Video Message
-                  </p>
-                  <p className="font-display italic text-background text-lg md:text-xl">
-                    "A message for my family"
-                  </p>
-                  <p className="font-body text-xs text-background/60 mt-2">
-                    Recorded December 4, 2023 · 4:32
-                  </p>
+                  <p className="font-body text-xs uppercase tracking-[0.25em] text-background/80 mb-1">Video Message</p>
+                  <p className="font-display italic text-background text-lg md:text-xl">"A message for my family"</p>
+                  <p className="font-body text-xs text-background/60 mt-2">Recorded December 4, 2023 · 4:32</p>
                 </div>
               </div>
             </motion.div>
@@ -145,12 +129,11 @@ const MemorialShowcase = () => {
           {/* His words */}
           <div className="px-8 py-10 md:px-16 md:py-14">
             <div className="p-5 rounded-xl bg-card border border-border/30">
-              <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">
-                His words
-              </p>
+              <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">His words</p>
               <p className="font-display italic text-foreground/70 text-base leading-relaxed">
-                "I'm not great with words, but I want you all to know — the life I had was the life I wanted.
-                Every Sunday dinner, every fishing trip, every time one of you walked through that front door. That was it. That was everything."
+                "I'm not great with words, but I want you all to know — the life I had was the life I wanted. Every
+                Sunday dinner, every fishing trip, every time one of you walked through that front door. That was it.
+                That was everything."
               </p>
             </div>
 
