@@ -135,9 +135,9 @@ const MemorialShowcase = () => {
             <div className="p-5 rounded-xl bg-card border border-border/30">
               <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-3">His words</p>
               <p className="font-display italic text-foreground/70 text-base leading-relaxed">
-                "I'm not great with words, but I want you all to know — the life I had was the life I wanted. Every
-                Sunday dinner, every fishing trip, every time one of you walked through that front door. That was it.
-                That was everything."
+                "I was never great with words, but I want you all to know: the life I had was the life I wanted. Every
+                Sunday dinner, every fishing trip, every time one of you walked through that front door. That was it. I
+                look forward to it every single time. And that was everything."
               </p>
             </div>
 
