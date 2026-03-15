@@ -14,7 +14,7 @@ const ClosingSection = () => {
           <h2 className="text-4xl md:text-5xl font-display italic text-foreground mb-8 leading-tight">
             Because your story deserves
             <br />
-            to be told the way you want to.
+            to be told the way you want to
           </h2>
           <p className="font-body text-lg text-muted-foreground mb-12 max-w-xl mx-auto leading-relaxed">
             You've spent a lifetime collecting moments. Memento makes sure none of them get lost — and that the people
