@@ -76,25 +76,32 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col items-center justify-center gap-6"
         >
+        
+          {/* Top row */}
+          <div className="flex flex-row gap-4">
+            <a href="#how-it-works">
+              <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
+                How It Works
+              </Button>
+            </a>
+        
+            <a href="#showcase">
+              <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
+                What is Memento?
+              </Button>
+            </a>
+          </div>
+        
+          {/* Bottom CTA */}
           <a href="/start">
             <Button variant="hero" size="lg" className="text-base px-10 py-6">
               Start Your Memento
             </Button>
           </a>
-          <a href="#how-it-works">
-            <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
-              How It Works
-            </Button>
-          </a>
-          <a href="#showcase">
-            <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
-              What is Memento?
-            </Button>
-          </a>
+        
         </motion.div>
-      </div>
 
       {/* Scroll indicator */}
       <motion.div
