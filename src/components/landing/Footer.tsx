@@ -6,9 +6,9 @@ const Footer = () => {
           Memento
         </span>
         <div className="flex items-center gap-8 font-body text-sm text-muted-foreground">
-          <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-          <a href="#" className="hover:text-foreground transition-colors">Security</a>
-          <a href="#" className="hover:text-foreground transition-colors">About</a>
+          <a href="#privacy" className="hover:text-foreground transition-colors">Privacy</a>
+          <a href="#privacy" className="hover:text-foreground transition-colors">Security</a>
+          <a href="#showcase" className="hover:text-foreground transition-colors">About</a>
           <a href="#" className="hover:text-foreground transition-colors">Contact</a>
         </div>
         <p className="font-body text-xs text-muted-foreground">
