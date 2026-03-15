@@ -32,8 +32,10 @@ const HeroSection = () => {
           className="hidden md:flex items-center gap-8 font-body text-sm text-muted-foreground"
         >
           <a href="#how-it-works" className="hover:text-foreground transition-colors">How It Works</a>
-          <a href="#features" className="hover:text-foreground transition-colors">Features</a>
-          <Button variant="hero" size="sm">Begin Your Legacy</Button>
+          <a href="#privacy" className="hover:text-foreground transition-colors">Privacy & Trust</a>
+          <a href="/start">
+            <Button variant="hero" size="sm">Start Your Memento</Button>
+          </a>
         </motion.div>
       </nav>
 
