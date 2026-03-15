@@ -23,7 +23,7 @@ const memories = [
   {
     src: familyHouseImg,
     alt: "The Pearson family outside their first home, 1972",
-    caption: "Summer of '72 — our first house, the kids still in sneakers",
+    caption: "Summer of '92 — Susie's first house, the kids still in sneakers",
     position: "object-center",
   },
   {
