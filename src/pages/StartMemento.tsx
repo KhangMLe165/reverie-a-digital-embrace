@@ -129,9 +129,7 @@ const StartMemento = () => {
             />
           ))}
         </div>
-        <p className="font-body text-xs text-muted-foreground mb-8">
-          Step {step} of 3
-        </p>
+        <p className="font-body text-xs text-muted-foreground mb-8">Step {step} of 3</p>
       </div>
 
       {/* Steps */}
@@ -154,7 +152,7 @@ const StartMemento = () => {
                     Thank you for choosing to open a Memento account with us.
                   </p>
                   <p className="font-body text-sm text-muted-foreground">
-                    We're honored to help you preserve what matters most.
+                    We're honored to have spoken with you about preserving what matters most.
                   </p>
                 </div>
               </div>
@@ -164,9 +162,7 @@ const StartMemento = () => {
                 <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-1">
                   Your Reference ID
                 </p>
-                <p className="font-display text-lg font-semibold text-foreground tracking-wide">
-                  {referenceId}
-                </p>
+                <p className="font-display text-lg font-semibold text-foreground tracking-wide">{referenceId}</p>
                 <p className="font-body text-xs text-muted-foreground mt-2">
                   This is your private identifier. Everything here is encrypted and visible only to you.
                 </p>
@@ -174,12 +170,8 @@ const StartMemento = () => {
 
               {/* Name */}
               <div className="space-y-3">
-                <label className="font-display text-xl italic text-foreground">
-                  What's your name?
-                </label>
-                <p className="font-body text-sm text-muted-foreground">
-                  The name you'd like your memento to carry.
-                </p>
+                <label className="font-display text-xl italic text-foreground">What's your name?</label>
+                <p className="font-body text-sm text-muted-foreground">The name you'd like your memento to carry.</p>
                 <Input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -213,9 +205,7 @@ const StartMemento = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="mb-10">
-                <h2 className="font-display text-3xl md:text-4xl italic text-foreground mb-3">
-                  Upload your life
-                </h2>
+                <h2 className="font-display text-3xl md:text-4xl italic text-foreground mb-3">Upload your life</h2>
                 <p className="font-body text-muted-foreground text-lg leading-relaxed max-w-xl">
                   Photos, videos, notes, writings, voice recordings — anything that tells your story.
                 </p>
@@ -233,12 +223,8 @@ const StartMemento = () => {
                         <cat.icon className="w-5 h-5 text-primary" />
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="font-display text-sm font-medium text-foreground">
-                          {cat.label}
-                        </p>
-                        <p className="font-body text-xs text-muted-foreground mt-0.5">
-                          {cat.description}
-                        </p>
+                        <p className="font-display text-sm font-medium text-foreground">{cat.label}</p>
+                        <p className="font-body text-xs text-muted-foreground mt-0.5">{cat.description}</p>
                         {fileCount > 0 && (
                           <p className="font-body text-xs text-primary mt-1.5">
                             {fileCount} file{fileCount > 1 ? "s" : ""} selected
@@ -262,27 +248,15 @@ const StartMemento = () => {
 
               {/* Gentle nudge */}
               <div className="rounded-xl bg-accent/50 border border-border/50 p-5 mb-10">
-                <p className="font-body text-sm text-muted-foreground italic leading-relaxed">
-                  "{nudge}"
-                </p>
+                <p className="font-body text-sm text-muted-foreground italic leading-relaxed">"{nudge}"</p>
               </div>
 
               <div className="flex justify-between">
-                <Button
-                  variant="hero-outline"
-                  size="lg"
-                  className="text-base px-8 py-6"
-                  onClick={() => setStep(1)}
-                >
+                <Button variant="hero-outline" size="lg" className="text-base px-8 py-6" onClick={() => setStep(1)}>
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back
                 </Button>
-                <Button
-                  variant="hero"
-                  size="lg"
-                  className="text-base px-8 py-6"
-                  onClick={() => setStep(3)}
-                >
+                <Button variant="hero" size="lg" className="text-base px-8 py-6" onClick={() => setStep(3)}>
                   Continue
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
@@ -300,9 +274,7 @@ const StartMemento = () => {
               transition={{ duration: 0.5 }}
             >
               <div className="mb-10">
-                <h2 className="font-display text-3xl md:text-4xl italic text-foreground mb-3">
-                  Tell us who you are
-                </h2>
+                <h2 className="font-display text-3xl md:text-4xl italic text-foreground mb-3">Tell us who you are</h2>
                 <p className="font-body text-muted-foreground text-lg leading-relaxed max-w-xl">
                   In your own words — so we can represent you authentically.
                 </p>
@@ -317,14 +289,10 @@ const StartMemento = () => {
                     transition={{ duration: 0.4, delay: i * 0.1 }}
                     className="space-y-2"
                   >
-                    <label className="font-display text-base font-medium text-foreground">
-                      {q.label}
-                    </label>
+                    <label className="font-display text-base font-medium text-foreground">{q.label}</label>
                     <Textarea
                       value={answers[q.id] || ""}
-                      onChange={(e) =>
-                        setAnswers((prev) => ({ ...prev, [q.id]: e.target.value }))
-                      }
+                      onChange={(e) => setAnswers((prev) => ({ ...prev, [q.id]: e.target.value }))}
                       placeholder={q.placeholder}
                       className="min-h-[120px] text-base bg-card border-border focus:border-primary resize-none"
                     />
@@ -333,20 +301,11 @@ const StartMemento = () => {
               </div>
 
               <div className="flex justify-between mt-12">
-                <Button
-                  variant="hero-outline"
-                  size="lg"
-                  className="text-base px-8 py-6"
-                  onClick={() => setStep(2)}
-                >
+                <Button variant="hero-outline" size="lg" className="text-base px-8 py-6" onClick={() => setStep(2)}>
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back
                 </Button>
-                <Button
-                  variant="hero"
-                  size="lg"
-                  className="text-base px-8 py-6"
-                >
+                <Button variant="hero" size="lg" className="text-base px-8 py-6">
                   Complete Your Memento
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
