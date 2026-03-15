@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import portraitImg from "@/assets/memorial-portrait.jpg";
-import cookingImg from "@/assets/memorial-cooking.jpg";
-import workshopImg from "@/assets/memorial-workshop.jpg";
+import familyHouseImg from "@/assets/memorial-family-house.jpg";
+import familyGatheringImg from "@/assets/memorial-family-gathering.jpg";
 import youngImg from "@/assets/memorial-young.jpg";
 import weddingImg from "@/assets/memorial-wedding.jpg";
 import videoImg from "@/assets/memorial-video.jpg";
@@ -21,16 +21,16 @@ const memories = [
     position: "object-[center_65%]",
   },
   {
-    src: workshopImg,
-    alt: "Thomas in his workshop building furniture",
-    caption: "The workshop — every grandchild has a bookshelf he built",
-    position: "object-[center_25%]",
+    src: familyHouseImg,
+    alt: "The Pearson family outside their first home, 1972",
+    caption: "Summer of '72 — our first house, the kids still in sneakers",
+    position: "object-center",
   },
   {
-    src: cookingImg,
-    alt: "Thomas cooking his famous stew",
-    caption: "Sunday stew — he never once used a recipe",
-    position: "object-[center_25%]",
+    src: familyGatheringImg,
+    alt: "Thomas surrounded by family at a backyard gathering",
+    caption: "Sunday dinner — the table he loved most was always outside",
+    position: "object-center",
   },
 ];
 
