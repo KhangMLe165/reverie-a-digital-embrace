@@ -50,18 +50,32 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.9, delay: index * 0.15 }}
-              className="relative"
+              className="relative flex flex-col md:flex-row items-center gap-8 md:gap-12"
             >
-              <Quote className="w-10 h-10 text-primary/30 mb-6 mx-auto md:mx-0" />
-              <blockquote className="font-body text-lg md:text-xl leading-relaxed text-primary-foreground/85 max-w-3xl mx-auto md:mx-0 text-center md:text-left">
-                "{testimonial.text}"
-              </blockquote>
-              <p className="mt-6 font-display italic text-primary text-center md:text-left">
-                — {testimonial.author},{" "}
-                <span className="text-primary-foreground/50 not-italic font-body text-sm">
-                  {testimonial.location}
-                </span>
-              </p>
+              {/* Photo */}
+              <div className={`shrink-0 ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                <div className="w-36 h-36 md:w-48 md:h-48 rounded-full overflow-hidden ring-2 ring-primary/20 ring-offset-4 ring-offset-foreground">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.imageAlt}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Quote */}
+              <div className={`flex-1 ${index % 2 === 1 ? "md:order-1 md:text-right" : ""}`}>
+                <Quote className={`w-10 h-10 text-primary/30 mb-6 mx-auto ${index % 2 === 1 ? "md:ml-auto md:mr-0" : "md:mx-0"}`} />
+                <blockquote className={`font-body text-lg md:text-xl leading-relaxed text-primary-foreground/85 text-center ${index % 2 === 1 ? "md:text-right" : "md:text-left"}`}>
+                  "{testimonial.text}"
+                </blockquote>
+                <p className={`mt-6 font-display italic text-primary text-center ${index % 2 === 1 ? "md:text-right" : "md:text-left"}`}>
+                  — {testimonial.author},{" "}
+                  <span className="text-primary-foreground/50 not-italic font-body text-sm">
+                    {testimonial.location}
+                  </span>
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
