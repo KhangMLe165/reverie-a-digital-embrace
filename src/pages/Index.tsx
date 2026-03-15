@@ -2,6 +2,7 @@ import HeroSection from "@/components/landing/HeroSection";
 import MemorialShowcase from "@/components/landing/MemorialShowcase";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
+import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import ClosingSection from "@/components/landing/ClosingSection";
 import Footer from "@/components/landing/Footer";
 
