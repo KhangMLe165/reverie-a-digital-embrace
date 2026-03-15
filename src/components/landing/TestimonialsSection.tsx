@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import testimonialMaya from "@/assets/testimonial-maya.jpg";
+import testimonialDaniel from "@/assets/testimonial-daniel.jpg";
 
 const testimonials = [
   {
     text: "My kids were 4 and 6 when their grandfather passed. They won't remember him the way I do. He was my person and I wanted to share that so badly. Thanks to Memento, they'll know his laugh. They'll hear him tell the story of how he met their grandmother in his voice. They'll know who he was, the adventures he's taken, the deeply caring person he was, not just that he existed.",
     author: "Maya R.",
     location: "Portland",
+    image: testimonialMaya,
+    imageAlt: "A grandfather laughing with his two young grandchildren on a porch swing",
   },
   {
     text: "I was 8,000 miles away when my mother died. The guilt of not being there, I carried it for months. But she had prepared her Memento. The night I finally opened it, it felt like she had been waiting for me. Like she had saved one last conversation just for me and I couldn't be more thankful she did.",
     author: "Daniel K.",
     location: "London",
+    image: testimonialDaniel,
+    imageAlt: "A proud mother with her son at his graduation ceremony",
   },
 ];
 
