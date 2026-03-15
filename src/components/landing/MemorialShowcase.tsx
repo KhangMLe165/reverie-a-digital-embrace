@@ -69,7 +69,7 @@ const MemorialShowcase = () => {
             <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-border/20 shadow-lg mb-8">
               <img src={portraitImg} alt="Thomas H. Peason" className="w-full h-full object-cover" />
             </div>
-            <h3 className="text-3xl md:text-4xl font-display italic text-foreground mb-3">Thomas H. Peason</h3>
+            <h3 className="text-3xl md:text-4xl font-display italic text-foreground mb-3">Thomas H. Pearson</h3>
             <p className="font-body text-sm text-muted-foreground tracking-wide mb-6">
               April 3, 1941 — February 12, 2024
             </p>
