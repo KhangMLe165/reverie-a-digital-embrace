@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -16,69 +16,24 @@ import {
   Upload,
   ShieldCheck,
 } from "lucide-react";
+import MementoTribute from "@/components/memento/MementoTribute";
 
 const referenceId = `MEM-${Math.random().toString(36).substring(2, 8).toUpperCase()}-${Date.now().toString(36).substring(4).toUpperCase()}`;
 
 const uploadCategories = [
-  {
-    icon: Image,
-    label: "Photos",
-    description: "Family portraits, trips, everyday moments",
-    accepted: "image/*",
-  },
-  {
-    icon: Video,
-    label: "Videos",
-    description: "Home videos, clips, screen recordings",
-    accepted: "video/*",
-  },
-  {
-    icon: StickyNote,
-    label: "Notes & Documents",
-    description: "Letters, essays, journal entries",
-    accepted: ".pdf,.doc,.docx,.txt",
-  },
-  {
-    icon: FileText,
-    label: "Writings",
-    description: "Stories, poems, blog posts, reflections",
-    accepted: ".pdf,.doc,.docx,.txt,.md",
-  },
-  {
-    icon: Mic,
-    label: "Voice & Audio",
-    description: "Voice memos, recordings, interviews",
-    accepted: "audio/*",
-  },
-  {
-    icon: Package,
-    label: "Physical Items Pickup",
-    description: "Request a pickup for photo albums, letters, heirlooms",
-    accepted: undefined,
-  },
+  { icon: Image, label: "Photos", description: "Family portraits, trips, everyday moments", accepted: "image/*" },
+  { icon: Video, label: "Videos", description: "Home videos, clips, screen recordings", accepted: "video/*" },
+  { icon: StickyNote, label: "Notes & Documents", description: "Letters, essays, journal entries", accepted: ".pdf,.doc,.docx,.txt" },
+  { icon: FileText, label: "Writings", description: "Stories, poems, blog posts, reflections", accepted: ".pdf,.doc,.docx,.txt,.md" },
+  { icon: Mic, label: "Voice & Audio", description: "Voice memos, recordings, interviews", accepted: "audio/*" },
+  { icon: Package, label: "Physical Items Pickup", description: "Request a pickup for photo albums, letters, heirlooms", accepted: undefined },
 ];
 
 const questions = [
-  {
-    id: "proudest",
-    label: "What are you most proud of in your life?",
-    placeholder: "It could be a moment, a relationship, a choice you made…",
-  },
-  {
-    id: "remember",
-    label: "How would you like to be remembered?",
-    placeholder: "In your own words — there's no wrong answer here…",
-  },
-  {
-    id: "message",
-    label: "Is there something you've always wanted to say to someone?",
-    placeholder: "A message, a thank you, an apology, a declaration…",
-  },
-  {
-    id: "story",
-    label: "What story do you wish more people knew about you?",
-    placeholder: "The one that never made it to the dinner table…",
-  },
+  { id: "proudest", label: "What are you most proud of in your life?", placeholder: "It could be a moment, a relationship, a choice you made…" },
+  { id: "remember", label: "How would you like to be remembered?", placeholder: "In your own words — there's no wrong answer here…" },
+  { id: "message", label: "Is there something you've always wanted to say to someone?", placeholder: "A message, a thank you, an apology, a declaration…" },
+  { id: "story", label: "What story do you wish more people knew about you?", placeholder: "The one that never made it to the dinner table…" },
 ];
 
 const gentleNudges = [
@@ -88,11 +43,37 @@ const gentleNudges = [
   "You can always come back and add more later.",
 ];
 
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
+
+function fileToBase64(file: File): Promise<{ media_type: string; data: string }> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      const base64 = result.includes(",") ? result.split(",")[1] : result;
+      resolve({ media_type: file.type || "image/jpeg", data: base64 });
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
 const StartMemento = () => {
   const [step, setStep] = useState(1);
   const [name, setName] = useState("");
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [uploadedFiles, setUploadedFiles] = useState<Record<string, File[]>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [tribute, setTribute] = useState<string | null>(null);
+  const [attachedPhotoUrls, setAttachedPhotoUrls] = useState<string[]>([]);
+  const attachedPhotoUrlsRef = useRef<string[]>([]);
+
+  useEffect(() => {
+    return () => {
+      attachedPhotoUrlsRef.current.forEach(URL.revokeObjectURL);
+    };
+  }, []);
 
   const handleFileUpload = (category: string, files: FileList | null) => {
     if (!files) return;
@@ -102,7 +83,89 @@ const StartMemento = () => {
     }));
   };
 
+  const handleComplete = async () => {
+    setError(null);
+    setIsSubmitting(true);
+    try {
+      const textParts = [
+        `Name: ${name}`,
+        ...questions.map((q) => `${q.label}\n${answers[q.id] || "(not provided)"}`),
+      ];
+      const userText = textParts.join("\n\n---\n\n");
+
+      const content: Array<
+        | { type: "text"; text: string }
+        | { type: "image"; source: { type: "base64"; media_type: string; data: string } }
+      > = [{ type: "text", text: userText }];
+
+      const photoFiles = uploadedFiles["Photos"] || [];
+      const imagesToSend = photoFiles.slice(0, 3);
+      for (const file of imagesToSend) {
+        if (!file.type.startsWith("image/")) continue;
+        const { media_type, data } = await fileToBase64(file);
+        content.push({ type: "image", source: { type: "base64", media_type, data } });
+      }
+
+      const systemPrompt = `You are a thoughtful memory curator. Your task is to transform the user's personal materials (written reflections and any photos they provided) into a single, warm, first-person narrative memory that could appear in a digital legacy archive.
+
+Steps before writing:
+1. Analyze any visual materials: setting, people, emotional tone, activity, time period.
+2. Extract from the written context: names, relationships, dates, meaningful events, emotional significance.
+3. Combine visuals and text into one coherent story.
+
+Output format and style:
+- Write in first person ("I") as the person whose memory this is.
+- Structure the memory into clearly titled sections. Each section has a short evocative title on its own line (e.g. "Arrival at Cornell", "Memorable Orientation Week", "Facing My Fear of Water", "Growth and Reflection"), followed by multiple paragraphs of narrative. Do not use markdown—no #, ##, or ### in front of titles; use plain text only.
+- Write several paragraphs per section. The overall piece should be substantial and detailed—like a reflective memoir entry.
+- Tone: warm, reflective, grounded in specific details, natural and human. Avoid sounding like AI or a formal obituary. Focus on the moment and life, not death.
+- Include specific details from the user's input (names, places, events). If context is limited, lean on visual details; do not invent unrealistic facts.
+- End with a closing section that reflects on what the person learned or how they want to be remembered, still in first person.`;
+
+      const res = await fetch(`${API_BASE}/api/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          system: systemPrompt,
+          messages: [{ content }],
+          max_tokens: 4000,
+        }),
+      });
+
+      if (!res.ok) {
+        const errBody = await res.text();
+        throw new Error(errBody || `Request failed: ${res.status}`);
+      }
+
+      const data = await res.json();
+      const tributeText = data?.content?.[0]?.text ?? "";
+      setTribute(tributeText);
+
+      const urls = imagesToSend.map((f) => URL.createObjectURL(f));
+      setAttachedPhotoUrls((prev) => {
+        prev.forEach(URL.revokeObjectURL);
+        return urls;
+      });
+      attachedPhotoUrlsRef.current = urls;
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const nudge = gentleNudges[Math.floor(Math.random() * gentleNudges.length)];
+
+  // Show the full tribute page when generated
+  if (tribute) {
+    return (
+      <MementoTribute
+        name={name}
+        tribute={tribute}
+        photoUrls={attachedPhotoUrls}
+        onBack={() => setTribute(null)}
+      />
+    );
+  }
 
   return (
     <main className="min-h-screen bg-background">
@@ -144,7 +207,6 @@ const StartMemento = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
             >
-              {/* Welcome confirmation */}
               <div className="flex items-start gap-4 rounded-2xl border border-primary/20 bg-primary/5 p-6 mb-8">
                 <CheckCircle2 className="w-6 h-6 text-primary shrink-0 mt-0.5" />
                 <div>
@@ -157,7 +219,6 @@ const StartMemento = () => {
                 </div>
               </div>
 
-              {/* Reference ID */}
               <div className="rounded-xl border border-border bg-card p-5 mb-10">
                 <p className="font-body text-xs uppercase tracking-[0.2em] text-muted-foreground mb-1">
                   Your Reference ID
@@ -168,7 +229,6 @@ const StartMemento = () => {
                 </p>
               </div>
 
-              {/* Name */}
               <div className="space-y-3">
                 <label className="font-display text-xl italic text-foreground">What's your name?</label>
                 <p className="font-body text-sm text-muted-foreground">The name you'd like your memento to carry.</p>
@@ -246,7 +306,6 @@ const StartMemento = () => {
                 })}
               </div>
 
-              {/* Gentle nudge */}
               <div className="rounded-xl bg-accent/50 border border-border/50 p-5 mb-10">
                 <p className="font-body text-sm text-muted-foreground italic leading-relaxed">"{nudge}"</p>
               </div>
@@ -300,14 +359,27 @@ const StartMemento = () => {
                 ))}
               </div>
 
+              {error && (
+                <div className="rounded-xl border border-destructive/50 bg-destructive/10 p-4 mt-6 text-sm text-destructive font-body">
+                  {error}
+                </div>
+              )}
+
               <div className="flex justify-between mt-12">
-                <Button variant="hero-outline" size="lg" className="text-base px-8 py-6" onClick={() => setStep(2)}>
+                <Button variant="hero-outline" size="lg" className="text-base px-8 py-6" onClick={() => setStep(2)} disabled={isSubmitting}>
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Back
                 </Button>
-                <Button variant="hero" size="lg" className="text-base px-8 py-6">
-                  Complete Your Memento
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                <Button
+                  type="button"
+                  variant="hero"
+                  size="lg"
+                  className="text-base px-8 py-6"
+                  onClick={handleComplete}
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Curating your memory…" : "Complete Your Memento"}
+                  {!isSubmitting && <ArrowRight className="w-4 h-4 ml-2" />}
                 </Button>
               </div>
             </motion.div>
