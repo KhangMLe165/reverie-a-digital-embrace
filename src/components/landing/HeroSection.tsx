@@ -78,12 +78,19 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button variant="hero" size="lg" className="text-base px-10 py-6">
-            Start Your Memento
-          </Button>
+          <a href="/start">
+            <Button variant="hero" size="lg" className="text-base px-10 py-6">
+              Start Your Memento
+            </Button>
+          </a>
           <a href="#how-it-works">
             <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
               How It Works
+            </Button>
+          </a>
+          <a href="#showcase">
+            <Button variant="hero-outline" size="lg" className="text-base px-10 py-6">
+              What is Memento?
             </Button>
           </a>
         </motion.div>

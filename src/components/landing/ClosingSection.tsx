@@ -19,9 +19,11 @@ const ClosingSection = () => {
           <p className="font-body text-lg text-muted-foreground mb-12 max-w-xl mx-auto leading-relaxed">
             You've spent a lifetime collecting moments. Memento makes sure none of them get lost — and that the people you love receive them exactly as you intended.
           </p>
-          <Button variant="hero" size="lg" className="text-base px-12 py-6">
-            Begin Your Memento
-          </Button>
+          <a href="/start">
+            <Button variant="hero" size="lg" className="text-base px-12 py-6">
+              Start Your Memento
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
