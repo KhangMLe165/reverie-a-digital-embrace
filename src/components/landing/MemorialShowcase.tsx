@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import portraitImg from "@/assets/memorial-portrait.jpg";
-import cookingImg from "@/assets/memorial-cooking.jpg";
-import workshopImg from "@/assets/memorial-workshop.jpg";
+import familyHouseImg from "@/assets/memorial-family-house.jpg";
+import familyGatheringImg from "@/assets/memorial-family-gathering.jpg";
 import youngImg from "@/assets/memorial-young.jpg";
 import weddingImg from "@/assets/memorial-wedding.jpg";
 import videoImg from "@/assets/memorial-video.jpg";
